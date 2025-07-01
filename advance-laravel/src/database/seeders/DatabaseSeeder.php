@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        // callメソッドでAuthorsTableSeederを指定し、シーディング処理を実行する設定
+        $this->call(AuthorsTableSeeder::class);
     }
 }
