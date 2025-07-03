@@ -36,11 +36,11 @@
 </style>
 
 <body>
-    <!--h1に@yield('title')を設定して別のファイルで管理する-->
+    {{--h1に@yield('title')を設定して別のファイルで管理する--}}
     <h1>@yield('title')</h1>
-    <!--クラス名をcontentに指定-->
+    {{--クラス名をcontentに指定--}}
     <div class="content">
-    <!--.contentに@yield('content')を設定して別のファイルで管理する-->
+    {{-- @yield('content')を設定して別のファイルで管理する --}}
         @yield('content')
     </div>
 </body>
