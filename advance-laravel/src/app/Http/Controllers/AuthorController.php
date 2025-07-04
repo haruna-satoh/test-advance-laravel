@@ -16,4 +16,10 @@ class AuthorController extends Controller
         // indexと$authorsを表示する
         return view('index', ['authors' => $authors]);
     }
+    // add関数を定義
+    public function add()
+    {
+        // addを表示する
+        return view('add');
+    }
 }
