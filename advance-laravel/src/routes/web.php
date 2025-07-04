@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// AuthorControllerを読み込む
+use App\Http\Controllers\AuthorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/* Route::get('/', function () {
+|    return view('welcome');
+| });
+*/
+
+// '/'(トップページ)にアクセスした時、AuthorControllerのindexを呼び出す
+Route::get('/',[AuthorController::class, 'index']);
