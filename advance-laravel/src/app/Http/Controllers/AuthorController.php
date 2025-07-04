@@ -11,7 +11,7 @@ class AuthorController extends Controller
     // index関数を定義
     public function index()
     {
-        // $authorsのデータを全権取得する
+        // Authorsのデータを全て$authorsに代入する
         $authors = Author::all();
         // indexと$authorsを表示する
         return view('index', ['authors' => $authors]);
@@ -21,5 +21,15 @@ class AuthorController extends Controller
     {
         // addを表示する
         return view('add');
+    }
+    // 追加されたデータを$requestに渡して、新しいリソースで処理する
+    public function create(Request $request)
+    {
+        // $requestのデータを全て$formに代入する
+        $form = $request->all();
+        // $formのデータをAuthorに追加する
+        Author::create($form);
+        // データを送信した時、'/'を表示させる
+        return redirect('/');
     }
 }

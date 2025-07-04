@@ -41,8 +41,8 @@
 
 {{-- layouts.defaultの<content>に表示される内容を指定 --}}
 @section('content')
-{{--データを送信する時のメソッドをpostに指定--}}
-<form action="" method="post">
+{{--データを送信する時、アクションを/add,メソッドをpostに指定--}}
+<form action="/add" method="post">
     {{-- フォーム送信時のセキュリティの設定 --}}
     @csrf
     {{-- テーブルを作る --}}

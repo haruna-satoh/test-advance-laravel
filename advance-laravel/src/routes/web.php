@@ -23,5 +23,8 @@ use App\Http\Controllers\AuthorController;
 // '/'(トップページ)にアクセスした時、AuthorControllerのindexを呼び出す
 Route::get('/',[AuthorController::class, 'index']);
 
-// '/add'にアクセスした時、AuthorControllerのindexを呼び出す
+// '/add'にアクセスした時、AuthorControllerのaddを呼び出す
 Route::get('/add',[AuthorController::class, 'add']);
+
+// '/add'にpostでアクセス時、AuthorControllerのcreateを呼び出す
+Route::post('/add',[AuthorController::class, 'create']);
