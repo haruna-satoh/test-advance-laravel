@@ -52,4 +52,12 @@ class AuthorController extends Controller
         // データを送信した時、'/'を表示させる
         return redirect('/');
     }
+    // データを削除する機能を追加
+    public function delete(Request $request)
+    {
+        // Authorの中から、$request->idに一致するデータを探し$authorに入れる
+        $author = Author::find($request->id);
+        // deleteと$authorを表示する
+        return view('delete', ['author' => $author]);
+    }
 }
