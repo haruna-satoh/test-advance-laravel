@@ -32,4 +32,12 @@ class AuthorController extends Controller
         // データを送信した時、'/'を表示させる
         return redirect('/');
     }
+    // データ編集用のページを表示させる
+    public function edit(Request $request)
+    {
+        // Authorの中から、$request->idに一致するデータを探し$authorに入れる
+        $author = Author::find($request->id);
+        // editと$authorを表示する
+        return view('edit', ['form' => $author]);
+    }
 }
