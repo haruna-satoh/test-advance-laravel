@@ -40,4 +40,16 @@ class AuthorController extends Controller
         // editと$authorを表示する
         return view('edit', ['form' => $author]);
     }
+    // 更新機能を追加
+    public function update(Request $request)
+    {
+        // $requestのデータをすべて$formに入れる
+        $form = $request->all();
+        // bladeファイルで設定したcsrf対策用のトークンを削除する
+        unset($form['_token']);
+        // Authorの中から、$request->idに一致するデータを探し、$formを元に更新する
+        Author::find($request->id)->update($form);
+        // データを送信した時、'/'を表示させる
+        return redirect('/');
+    }
 }

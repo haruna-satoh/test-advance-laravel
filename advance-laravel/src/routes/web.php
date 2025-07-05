@@ -29,5 +29,8 @@ Route::get('/add',[AuthorController::class, 'add']);
 // '/add'にpostでアクセス時、AuthorControllerのcreateを呼び出す
 Route::post('/add',[AuthorController::class, 'create']);
 
-// '/edit'にポストでアクセス時、AuthorControllerのeditを呼び出す
+// '/edit'にgetでアクセス時、AuthorControllerのeditを呼び出す
 Route::get('/edit',[AuthorController::class, 'edit']);
+
+// '/edit'にpostでアクセス時、AuthorControllerのupdateを呼び出す
+Route::post('/edit',[AuthorController::class, 'update']);
