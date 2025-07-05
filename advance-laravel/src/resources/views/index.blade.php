@@ -47,13 +47,13 @@
     @foreach ($authors as $author)
     {{-- テーブルのリスト --}}
     <tr>
-        {{-- $authorからidの値を取り出す --}}
+        {{-- $authorにidの値を代入 --}}
         <td>{{$author->id}}</td>
-        {{-- $authorからnameの値を取り出す --}}
+        {{-- $authorにnameの値を代入 --}}
         <td>{{$author->name}}</td>
-        {{-- $authorからageの値を取り出す --}}
+        {{-- $authorにageの値を代入 --}}
         <td>{{$author->age}}</td>
-        {{-- $authorからnationalityの値を取り出す --}}
+        {{-- $authorにnationalityの値を代入 --}}
         <td>{{$author->nationality}}</td>
     </tr>
     {{-- 繰り返し処理を終了 --}}
