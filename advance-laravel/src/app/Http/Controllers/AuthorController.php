@@ -68,4 +68,19 @@ class AuthorController extends Controller
         // データを送信した時に、'/'を表示させる
         return redirect('/');
     }
+    public function find()
+    {
+        // 'find'に'inputという空の文字列を渡す
+        return view('find', ['input' => '']);
+    }
+    public function search(Request $request)
+    {
+        // Authorの中でinputを含むものを検索し、最初の1件を$itemに入れる
+        $item = Author::where('name', 'LIKE',"%{$request->input}%")->first();
+        $param = [
+            'input' => $request->input,
+            'item' => $item
+        ];
+        return view('find', $param);
+    }
 }

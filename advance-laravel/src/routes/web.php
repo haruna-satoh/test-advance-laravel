@@ -40,3 +40,7 @@ Route::get('/delete', [AuthorController::class, 'delete']);
 
 // '/deleteにpostでアクセス時、AuthorControllerのremoveを呼び出す
 Route::post('/delete',[AuthorController::class, 'remove']);
+
+Route::get('/find', [AuthorController::class, 'find']);
+
+Route::post('/find', [AuthorController::class, 'search']);
