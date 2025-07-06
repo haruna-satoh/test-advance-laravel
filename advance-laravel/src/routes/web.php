@@ -37,3 +37,6 @@ Route::post('/edit',[AuthorController::class, 'update']);
 
 // '/delete'にgetでアクセス時、AuthorControllerのdeleteを呼び出す
 Route::get('/delete', [AuthorController::class, 'delete']);
+
+// '/deleteにpostでアクセス時、AuthorControllerのremoveを呼び出す
+Route::post('/delete',[AuthorController::class, 'remove']);

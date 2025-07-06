@@ -59,7 +59,8 @@
     <tr>
         <th></th>
         <td>
-            <form action="/delete" method="post">
+            {{-- action属性にクエリパラメータを指定して、削除対象のidを代入する --}}
+            <form action="/delete?id={{$author->id}}" method="post">
             @csrf
             <button>送信</button>
             </form>
