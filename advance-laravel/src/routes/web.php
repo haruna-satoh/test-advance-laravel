@@ -44,3 +44,6 @@ Route::post('/delete',[AuthorController::class, 'remove']);
 Route::get('/find', [AuthorController::class, 'find']);
 
 Route::post('/find', [AuthorController::class, 'search']);
+
+// '/author/{authorのid}にアクセスした時、AuthorControllerのbindを呼び出す
+Route::get('/author/{author}',[AuthorController::class, 'bind']);

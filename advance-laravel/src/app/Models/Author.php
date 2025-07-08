@@ -11,4 +11,12 @@ class Author extends Model
 
     // $fillable'name','age','nationality'を書き換え可能にする
     protected $fillable = ['name','age', 'nationality'];
+
+    // getDetailアクションを定義
+    public function getDetail()
+    {
+        // $txtの表示の仕方を指定
+        $txt = 'ID:'.$this->id . '' . $this->name . '(' . $this->age . '才' . ')' . $this->nationality;
+        return $txt;
+    }
 }

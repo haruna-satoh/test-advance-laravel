@@ -35,26 +35,28 @@
     {{-- テーブルのリスト --}}
     <tr>
         {{-- テーブルの見出し、id作成 --}}
-        <th>id</th>
+        {{-- <th>id</th> --}}
         {{-- テーブルの見出し、name作成 --}}
-        <th>name</th>
+        {{-- <th>name</th> --}}
         {{-- テーブルの見出し、age作成 --}}
-        <th>age</th>
+        {{-- <th>age</th> --}}
         {{-- テーブルの見出し、nationality作成 --}}
-        <th>nationality</th>
+        {{-- <th>nationality</th> --}}
+        <th>Data</th>
     </tr>
 {{-- $authorに$authorsの値が順番に代入させて、要素の分だけ繰り返し処理する --}}
     @foreach ($authors as $author)
     {{-- テーブルのリスト --}}
     <tr>
         {{-- $authorにidの値を代入 --}}
-        <td>{{$author->id}}</td>
+        {{-- <td>{{$author->id}}</td> --}}
         {{-- $authorにnameの値を代入 --}}
-        <td>{{$author->name}}</td>
+        {{-- <td>{{$author->name}}</td> --}}
         {{-- $authorにageの値を代入 --}}
-        <td>{{$author->age}}</td>
+        {{-- <td>{{$author->age}}</td> --}}
         {{-- $authorにnationalityの値を代入 --}}
-        <td>{{$author->nationality}}</td>
+        {{-- <td>{{$author->nationality}}</td> --}}
+        <td>{{$author->getDetail()}}</td>
     </tr>
     {{-- 繰り返し処理を終了 --}}
     @endforeach
