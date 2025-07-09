@@ -13,6 +13,8 @@ class AuthorController extends Controller
     {
         // Authorsのデータを全て$authorsに代入する
         $authors = Author::all();
+        // データ確認用の関数を追加
+        // dd($authors);
         // indexと$authorsを表示する
         return view('index', ['authors' => $authors]);
     }
@@ -27,6 +29,7 @@ class AuthorController extends Controller
     {
         // $requestのデータを全て$formに代入する
         $form = $request->all();
+        // dd($form);
         // $formのデータをAuthorに追加する
         Author::create($form);
         // データを送信した時、'/'を表示させる
@@ -45,6 +48,7 @@ class AuthorController extends Controller
     {
         // $requestのデータをすべて$formに入れる
         $form = $request->all();
+        // dd($form);
         // bladeファイルで設定したcsrf対策用のトークンを削除する
         unset($form['_token']);
         // Authorの中から、$request->idに一致するデータを探し、$formを元に更新する
@@ -65,6 +69,7 @@ class AuthorController extends Controller
     {
         // Authorの中から、$request->idに一致するデータを探し削除する
         Author::find($request->id)->delete();
+        // dd($request->all());
         // データを送信した時に、'/'を表示させる
         return redirect('/');
     }
