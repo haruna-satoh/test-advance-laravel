@@ -38,11 +38,22 @@
 
 {{-- 継承したファイルの<content>で表示される内容を指定 --}}
 @section('content')
+@if (count($errors) > 0)
+<p>入力に誤りがあります</p>
+@endif
 {{-- データ送信時、アクションを'/edit',メソッドを'post'に指定 --}}
 <form action="/edit" method="post">
     {{-- フォーム送信時のセキュリティーの設定 --}}
     @csrf
     <table>
+        @error('id')
+        <tr>
+            <th style="background-color: red">ERROR</th>
+            <td>
+                {{$errors->first('id')}}
+            </td>
+        </tr>
+        @enderror
         <tr>
             {{-- テーブルの見出しをidに設定 --}}
             <th>
@@ -53,6 +64,14 @@
                 <input type="text" name="id" value="{{$form->id}}">
             </td>
         </tr>
+        @error('name')
+        <tr>
+            <th style="background-color: red">ERROR</th>
+            <td>
+                {{$errors->first('name')}}
+            </td>
+        </tr>
+        @enderror
         <tr>
             {{-- テーブルの見出しをnameに設定 --}}
             <th>
@@ -63,6 +82,14 @@
                 <input type="text" name="name" value="{{$form->name}}">
             </td>
         </tr>
+        @error('age')
+        <tr>
+            <th style="background-color: red">ERROR</th>
+            <td>
+                {{$errors->first('age')}}
+            </td>
+        </tr>
+        @enderror
         <tr>
             <th>
                 age
@@ -71,6 +98,14 @@
                 <input type="text" name="age" value="{{$form->age}}">
             </td>
         </tr>
+        @error('nationality')
+        <tr>
+            <th style="background-color: red">ERROR</th>
+            <td>
+                {{$errors->first('nationality')}}
+            </td>
+        </tr>
+        @enderror
         <tr>
             <th>
                 nationality
