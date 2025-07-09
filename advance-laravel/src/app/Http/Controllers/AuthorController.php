@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 // Authorモデルを読み込む
 use App\Models\Author;
 use Illuminate\Http\Request;
+// フォームリクエストを読み込む
+use App\Http\Requests\AuthorRequest;
 
 class AuthorController extends Controller
 {
@@ -25,7 +27,8 @@ class AuthorController extends Controller
         return view('add');
     }
     // 追加されたデータを$requestに渡して、新しいリソースで処理する
-    public function create(Request $request)
+    // public function create(Request $request)
+    public function create(AuthorRequest $request)
     {
         // $requestのデータを全て$formに代入する
         $form = $request->all();

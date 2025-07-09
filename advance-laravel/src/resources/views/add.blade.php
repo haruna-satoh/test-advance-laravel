@@ -41,12 +41,29 @@
 
 {{-- layouts.defaultの<content>に表示される内容を指定 --}}
 @section('content')
+@if (count($errors) > 0)
+<p>入力に問題があります</p>
+{{-- <ul>
+    @foreach ($errors->all() as $error)
+    <li>{{$error}}</li>
+    @endforeach
+</ul> --}}
+@endif
 {{--データを送信する時、アクションを/add,メソッドをpostに指定--}}
 <form action="/add" method="post">
     {{-- フォーム送信時のセキュリティの設定 --}}
     @csrf
     {{-- テーブルを作る --}}
     <table>
+        {{-- @if ($errors->has('name')) --}}
+        @error('name')
+        <tr>
+            <th style="background-color: red">ERROR</th>
+            <td>
+                {{$errors->first('name')}}
+            </td>
+        </tr>
+        @endif
         {{-- テーブルのリスト --}}
         <tr>
             {{-- テーブルの見出し、nameを作成 --}}
@@ -54,6 +71,15 @@
             {{-- inputタグを設定し、ユーザーのnameデータを受け取る --}}
             <td><input type="text" name="name"></td>
         </tr>
+        {{-- @if ($errors->has('age')) --}}
+        @error('age')
+        <tr>
+            <th style="background-color: red">ERROR</th>
+            <td>
+                {{$errors->first('age')}}
+            </td>
+        </tr>
+        @endif
         {{-- テーブルのリスト --}}
         <tr>
             {{-- テーブルの見出し、ageを作成 --}}
@@ -61,6 +87,15 @@
             {{-- inputタグを設定し、ユーザーのageデータを受け取る --}}
             <td><input type="text" name="age"></td>
         </tr>
+        {{-- @if ($errors->has('nationality')) --}}
+        @error('nationality')
+        <tr>
+            <th style="background-color: red">ERROR</th>
+            <td>
+                {{$errors->first('nationality')}}
+            </td>
+        </tr>
+        @endif
         {{-- テーブルのリスト --}}
         <tr>
             {{-- テーブルの見出し、nationalityを作成 --}}
