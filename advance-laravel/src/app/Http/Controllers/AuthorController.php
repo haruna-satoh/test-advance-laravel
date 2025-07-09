@@ -47,7 +47,8 @@ class AuthorController extends Controller
         return view('edit', ['form' => $author]);
     }
     // 更新機能を追加
-    public function update(Request $request)
+    // public function update(Request $request)
+    public function update(AuthorRequest $request)
     {
         // $requestのデータをすべて$formに入れる
         $form = $request->all();
@@ -97,5 +98,9 @@ class AuthorController extends Controller
             'item'=>$author,
         ];
         return view('author.binds',$data);
+    }
+    public function verror()
+    {
+        return view('verror');
     }
 }

@@ -47,3 +47,5 @@ Route::post('/find', [AuthorController::class, 'search']);
 
 // '/author/{authorのid}にアクセスした時、AuthorControllerのbindを呼び出す
 Route::get('/author/{author}',[AuthorController::class, 'bind']);
+
+Route::get('/verror', [AuthorController::class, 'verror']);
