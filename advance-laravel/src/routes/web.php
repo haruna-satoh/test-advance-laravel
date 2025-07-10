@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 // AuthorControllerを読み込む
 use App\Http\Controllers\AuthorController;
-
+// BookControllerの読み込み
+use App\Http\Controllers\BookController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,3 +50,10 @@ Route::post('/find', [AuthorController::class, 'search']);
 Route::get('/author/{author}',[AuthorController::class, 'bind']);
 
 Route::get('/verror', [AuthorController::class, 'verror']);
+
+// アクセスするURLの先頭に/bookをつける
+Route::prefix('book')->group(function () {
+    Route::get('/', [BookController::class, 'index']);
+    Route::get('/add', [BookController::class, 'add']);
+    Route::post('/add', [BookController::class, 'create']);
+});
