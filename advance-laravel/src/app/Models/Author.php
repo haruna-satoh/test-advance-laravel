@@ -19,4 +19,12 @@ class Author extends Model
         $txt = 'ID:'.$this->id . '' . $this->name . '(' . $this->age . '才' . ')' . $this->nationality;
         return $txt;
     }
+    // public function book()
+    public function books()
+    {
+        // 1対1の関係の時のリレーション
+        // return $this->hasOne('App\Models\Book');
+        // 1対多の関係の時のリレーション
+        return $this->hasMany('App\Models\Book');
+    }
 }
