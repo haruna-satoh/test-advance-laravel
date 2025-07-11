@@ -10,6 +10,10 @@
         background-color: #ffffff;
     }
 
+    td table {
+        margin: 0 auto;
+    }
+
     td {
         padding: 25px 40px;
         background-color: #eeeeee;
@@ -27,15 +31,17 @@
         <th>Author</th>
         <th>Book</th>
     </tr>
-    @foreach ($items as $item)
+    {{-- @foreach ($items as $item) --}}
+    @foreach ($hasItems as $item)
     <tr>
         <td>
             {{$item->getDetail()}}
         </td>
         <td>
             {{-- $itemに関連するbookがあるか調べる --}}
-            @if ($item->books != null)
-            <table width="100%">
+            {{-- @if ($item->books != null) --}}
+            {{-- <table width="100%"> --}}
+            <table>
                 @foreach ($item->books as $obj)
                 <tr>
                     <td>{{ $obj->getTitle() }}</td>
@@ -43,8 +49,18 @@
                 @endforeach
             </table>
             {{-- {{ $item->book->getTitle() }} --}}
-            @endif
+            {{-- @endif --}}
         </td>
+    </tr>
+    @endforeach
+</table>
+<table>
+    <tr>
+        <th>Author</th>
+    </tr>
+    @foreach ($noItems as $item)
+    <tr>
+        <td>{{ $item->getDetail() }}</td>
     </tr>
     @endforeach
 </table>
