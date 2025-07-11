@@ -27,4 +27,8 @@ class Author extends Model
         // 1対多の関係の時のリレーション
         return $this->hasMany('App\Models\Book');
     }
+    public function reviews()
+    {
+        return $this->belongsToMany(Review::class)->withPivot('review');
+    }
 }
