@@ -32,6 +32,7 @@ composer install
 cp .env.example .env
 php artisan key:generate
 ```
+.env.exampleをコピーして.envを作成してください。必要に応じてAPP_KEYなどの情報はご自身で生成してください。
 
 5.アプリにアクセス
 
